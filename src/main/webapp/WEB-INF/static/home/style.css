@@ -1,0 +1,64 @@
+* {
+	font-family: "Segoe UI";
+	padding: 0px;
+	margin: 0px;
+}
+
+/* Header */
+
+header {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 20px;
+
+	background-color: black;
+	padding-top: 20px;
+}
+
+.title {
+	font-family: "Lucida Handwriting";
+	color: #FFD700;
+	font-size: 40px;
+
+	text-align: center;
+}
+
+.buttons {
+	display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 25px;
+}
+
+.btn {
+	color: white;
+	padding: 20px;
+	text-decoration: none;
+}
+.btn:hover {
+	color: white;
+	background-color: #242424;
+}
+
+/* Main  */
+.main-info {
+	background: radial-gradient(circle at 10% 20%, rgb(0, 0, 0) 0%, rgb(64, 64, 64) 90.2%);
+
+	text-align: right;
+	color: white;
+	padding: 100px 10% 100px 40%;
+
+	font-size: 25px;
+}
+
+/* Footer */
+ footer {
+ 	display: flex;
+ 	flex-direction: row;
+ 	justify-content: space-between;
+ 	gap: 10px;
+ 	background-color: black;
+ 	color: white;
+ 	padding: 10px;
+ }
