@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Restaurant</title>
     <link rel="stylesheet" th:href="@{static/home/style.css}">
+    <link rel="stylesheet" th:href="@{static/mainStyle.css}">
 </head>
 <body>
 <header>
@@ -11,7 +12,7 @@
     <div class="buttons">
         <a th:href="@{/home}" class="btn">Home</a>
         <a th:href="@{/home}" class="btn">Menu</a>
-        <a th:href="@{/home}" class="btn">Restaurants</a>
+        <a th:href="@{/restaurants}" class="btn">Restaurants</a>
         <a th:href="@{/home}" class="btn">Summary</a>
     </div>
 </header>
@@ -22,5 +23,6 @@
     <p>Phone number: +7 (123) 456-78-90</p>
     <p>Email: info@restaurantname.com</p>
     <p>Restaurant 2024</p>
+</footer>
 </body>
 </html>

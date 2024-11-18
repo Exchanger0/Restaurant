@@ -35,7 +35,7 @@ CREATE TABLE address (
 
 CREATE TABLE restaurant (
 	id int PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-	title text  NOT NULL,
+	image bytea  NOT NULL,
 	address_id int REFERENCES address(id),
 	start_time time NOT NULL,
 	end_time time NOT NULL

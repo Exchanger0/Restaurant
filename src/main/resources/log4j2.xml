@@ -6,13 +6,13 @@
                    https://logging.apache.org/xml/ns/log4j-config-2.xsd">
     <Appenders>
         <Console name="CONSOLE_MAIN">
-            <PatternLayout pattern="%highlight{%d [%p] %C{3}.%M(%F:%L) - %m%n}"/>
+            <PatternLayout pattern="%highlight{%d [%p] %C{3}(%F:%L) - %m%n}"/>
         </Console>
         <File name="FILE_MAIN" fileName="logs/main.log">
-            <PatternLayout pattern="%d [%p] %%C{3}.%M(%F:%L) - %m%n"/>
+            <PatternLayout pattern="%d [%p] %C{3}(%F:%L) - %m%n"/>
         </File>
         <File name="FILE_ERRORS" fileName="logs/errors.log">
-            <PatternLayout pattern="%d [%p] %C{3}.%M(%F:%L) - %m%n"/>
+            <PatternLayout pattern="%d [%p] %C{3}(%F:%L) - %m%n"/>
         </File>
     </Appenders>
 
