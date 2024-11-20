@@ -15,9 +15,16 @@
 	background-color: white;
 	display: flex;
 	flex-direction: row;
-	justify-content: center;
-	align-content: center;
 	gap: 20px;
 	padding: 10px;
 	border-radius: 20px;
+}
+
+.rest-link {
+	color: black;
+	margin-top: 20px;
+}
+
+.rest-link: visited {
+	color: darkgray;
 }

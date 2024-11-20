@@ -1,45 +1,38 @@
-package com.restaurant.model;
+package com.restaurant.dto;
 
-import jakarta.persistence.*;
+
+import com.restaurant.model.Address;
 
 import java.time.LocalTime;
+import java.util.Base64;
+import java.util.Map;
 import java.util.Objects;
 
-@Entity
-@Table(name = "restaurant")
-public class Restaurant {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
-    @Column(name = "image")
+public class RestaurantDto {
     private byte[] image;
-
-    @OneToOne(cascade = CascadeType.ALL)
     private Address address;
-
-    @Column(name = "start_time")
     private LocalTime startTime;
-
-    @Column(name = "end_time")
     private LocalTime endTime;
 
-    public Restaurant() {
+    public RestaurantDto() {
     }
 
-    public Restaurant(byte[] image, Address address, LocalTime startTime, LocalTime endTime) {
+    public RestaurantDto(byte[] image, Address address, LocalTime startTime, LocalTime endTime) {
         this.image = image;
         this.address = address;
         this.startTime = startTime;
         this.endTime = endTime;
     }
 
-    public int getId() {
-        return id;
-    }
+    public RestaurantDto(Map<String, String> values) {
+        if (values.containsKey("image"))
+            this.image = Base64.getDecoder().decode(values.get("image"));
 
-    public void setId(int id) {
-        this.id = id;
+        if (values.containsKey("startTime"))
+            this.startTime = LocalTime.parse(values.get("startTime"));
+
+        if (values.containsKey("endTime"))
+            this.endTime = LocalTime.parse(values.get("endTime"));
     }
 
     public byte[] getImage() {
@@ -78,20 +71,19 @@ public class Restaurant {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Restaurant that = (Restaurant) o;
-        return id == that.id && Objects.equals(address, that.address) && Objects.equals(startTime, that.startTime) && Objects.equals(endTime, that.endTime);
+        RestaurantDto that = (RestaurantDto) o;
+        return Objects.equals(address, that.address) && Objects.equals(startTime, that.startTime) && Objects.equals(endTime, that.endTime);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, address, startTime, endTime);
+        return Objects.hash(address, startTime, endTime);
     }
 
     @Override
     public String toString() {
         return "Restaurant{" +
-                "id=" + id +
-                ", address=" + address +
+                "address=" + address +
                 ", startTime=" + startTime +
                 ", endTime=" + endTime +
                 '}';

@@ -24,6 +24,7 @@ public class Address {
     private int number;
 
     public Address() {
+        number = -1;
     }
 
     public Address(String country, String city, String street, int number) {
@@ -87,7 +88,7 @@ public class Address {
     public String toString() {
         return "Address{" +
                 "id=" + id +
-                ", coutry='" + country + '\'' +
+                ", country='" + country + '\'' +
                 ", city='" + city + '\'' +
                 ", street='" + street + '\'' +
                 ", number=" + number +

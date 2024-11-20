@@ -1,6 +1,7 @@
 package com.restaurant.service;
 
 import com.restaurant.model.Restaurant;
+import com.restaurant.dto.RestaurantDto;
 import com.restaurant.repository.RestaurantRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,6 +27,32 @@ public class RestaurantService {
 
     public List<Restaurant> saveAll(Iterable<Restaurant> entities) {
         return restaurantRepo.saveAll(entities);
+    }
+
+    public Restaurant update(int id, RestaurantDto restaurantDto) {
+        Restaurant restaurant = restaurantRepo.findById(id).orElse(null);
+        if (restaurant != null) {
+            if (restaurantDto.getImage() != null)
+                restaurant.setImage(restaurantDto.getImage());
+            if (restaurantDto.getStartTime() != null)
+                restaurant.setStartTime(restaurantDto.getStartTime());
+            if (restaurantDto.getEndTime() != null)
+                restaurant.setEndTime(restaurantDto.getEndTime());
+
+            if (restaurantDto.getAddress() != null) {
+                if (restaurantDto.getAddress().getCountry() != null)
+                    restaurant.getAddress().setCountry(restaurantDto.getAddress().getCountry());
+                if (restaurantDto.getAddress().getCity() != null)
+                    restaurant.getAddress().setCity(restaurantDto.getAddress().getCity());
+                if (restaurantDto.getAddress().getStreet() != null)
+                    restaurant.getAddress().setStreet(restaurantDto.getAddress().getStreet());
+                if (restaurantDto.getAddress().getNumber() != -1)
+                    restaurant.getAddress().setNumber(restaurantDto.getAddress().getNumber());
+            }
+
+            restaurantRepo.save(restaurant);
+        }
+        return restaurant;
     }
 
     @Transactional(readOnly = true)
