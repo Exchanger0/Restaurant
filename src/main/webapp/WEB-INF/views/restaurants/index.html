@@ -18,7 +18,7 @@
 </header>
 <div class="rests">
     <div th:each="rest, iter : ${restaurants}" class="rest">
-        <img th:src="'data:image/jpeg;base64,' + ${images[iter.index]}" alt="Restaurant Image" width="300px" height="200px" />
+        <img th:src="'data:image/jpeg;base64,' + ${rest.image}" alt="Restaurant Image" width="300px" height="200px" />
         <div>
             <p th:text="|${rest.address.country}, ${rest.address.city}, ${rest.address.street} ${rest.address.number}|">Address</p>
             <p th:text="|${rest.startTime} - ${rest.endTime}|"></p>

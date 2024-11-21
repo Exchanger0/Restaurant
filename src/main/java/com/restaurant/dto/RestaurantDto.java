@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Objects;
 
 public class RestaurantDto {
+    private int id;
     private String image;
     private Address address;
     @JsonFormat(pattern = "HH:mm")
@@ -19,11 +20,20 @@ public class RestaurantDto {
     public RestaurantDto() {
     }
 
-    public RestaurantDto(String image, Address address, LocalTime startTime, LocalTime endTime) {
+    public RestaurantDto(int id, String image, Address address, LocalTime startTime, LocalTime endTime) {
+        this.id = id;
         this.image = image;
         this.address = address;
         this.startTime = startTime;
         this.endTime = endTime;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getImage() {
@@ -63,18 +73,19 @@ public class RestaurantDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         RestaurantDto that = (RestaurantDto) o;
-        return Objects.equals(address, that.address) && Objects.equals(startTime, that.startTime) && Objects.equals(endTime, that.endTime);
+        return id == that.id && Objects.equals(address, that.address) && Objects.equals(startTime, that.startTime) && Objects.equals(endTime, that.endTime);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(address, startTime, endTime);
+        return Objects.hash(id, address, startTime, endTime);
     }
 
     @Override
     public String toString() {
-        return "Restaurant{" +
-                "address=" + address +
+        return "RestaurantDto{" +
+                "id=" + id +
+                ", address=" + address +
                 ", startTime=" + startTime +
                 ", endTime=" + endTime +
                 '}';

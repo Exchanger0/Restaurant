@@ -34,8 +34,7 @@ public class RestaurantController {
         LOGGER.info("Received a GET request to url: /restaurants");
 
         List<Restaurant> restaurants = restaurantService.findAll();
-        model.addAttribute("restaurants", restaurants);
-        model.addAttribute("images", restaurantService.getImagesBase64(restaurants));
+        model.addAttribute("restaurants", RestaurantMapper.toDtoList(restaurants));
         return "restaurants/index";
     }
 
@@ -44,8 +43,7 @@ public class RestaurantController {
         LOGGER.info("Received a GET request to url: /restaurants/{}", restaurantId);
 
         Restaurant restaurant = restaurantService.findById(restaurantId);
-        model.addAttribute("restaurant", restaurant);
-        model.addAttribute("image", Base64.getEncoder().encodeToString(restaurant.getImage()));
+        model.addAttribute("restaurant", RestaurantMapper.toDto(restaurant));
 
         LOGGER.info("Show: {}", restaurant);
         return "restaurants/show";

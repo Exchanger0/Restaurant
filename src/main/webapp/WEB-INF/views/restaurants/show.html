@@ -17,7 +17,7 @@
     </div>
 </header>
 <div class="restaurant">
-    <img th:src="'data:image/jpeg;base64,' + ${image}" alt="Restaurant Image" width="800px" height="500px"/>
+    <img th:src="'data:image/jpeg;base64,' + ${restaurant.image}" alt="Restaurant Image" width="800px" height="500px"/>
     <p th:text="|Address: ${restaurant.address.country}, ${restaurant.address.city}, ${restaurant.address.street} ${restaurant.address.number}|">Restaurant address</p>
     <p th:text="|Working time: ${restaurant.startTime} - ${restaurant.endTime}|">Working time</p>
     <hr>
