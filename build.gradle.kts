@@ -19,11 +19,12 @@ dependencies {
 
     implementation("org.thymeleaf:thymeleaf-spring6:3.1.2.RELEASE")
 
-//    implementation("org.springframework:spring-orm:6.1.14")
     implementation("org.springframework.data:spring-data-jpa:3.3.5")
     implementation("org.hibernate.orm:hibernate-core:6.6.1.Final")
     implementation("org.postgresql:postgresql:42.7.4")
 
     implementation("org.apache.logging.log4j:log4j-core:2.24.1")
 
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.18.1")
+    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.18.1")
 }

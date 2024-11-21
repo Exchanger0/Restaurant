@@ -1,7 +1,6 @@
 package com.restaurant.service;
 
 import com.restaurant.model.Restaurant;
-import com.restaurant.dto.RestaurantDto;
 import com.restaurant.repository.RestaurantRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,30 +28,30 @@ public class RestaurantService {
         return restaurantRepo.saveAll(entities);
     }
 
-    public Restaurant update(int id, RestaurantDto restaurantDto) {
-        Restaurant restaurant = restaurantRepo.findById(id).orElse(null);
-        if (restaurant != null) {
-            if (restaurantDto.getImage() != null)
-                restaurant.setImage(restaurantDto.getImage());
-            if (restaurantDto.getStartTime() != null)
-                restaurant.setStartTime(restaurantDto.getStartTime());
-            if (restaurantDto.getEndTime() != null)
-                restaurant.setEndTime(restaurantDto.getEndTime());
+    public Restaurant update(int id, Restaurant restaurant) {
+        Restaurant origin = restaurantRepo.findById(id).orElse(null);
+        if (origin != null && restaurant != null) {
+            if (restaurant.getImage() != null)
+                origin.setImage(restaurant.getImage());
+            if (restaurant.getStartTime() != null)
+                origin.setStartTime(restaurant.getStartTime());
+            if (restaurant.getEndTime() != null)
+                origin.setEndTime(restaurant.getEndTime());
 
-            if (restaurantDto.getAddress() != null) {
-                if (restaurantDto.getAddress().getCountry() != null)
-                    restaurant.getAddress().setCountry(restaurantDto.getAddress().getCountry());
-                if (restaurantDto.getAddress().getCity() != null)
-                    restaurant.getAddress().setCity(restaurantDto.getAddress().getCity());
-                if (restaurantDto.getAddress().getStreet() != null)
-                    restaurant.getAddress().setStreet(restaurantDto.getAddress().getStreet());
-                if (restaurantDto.getAddress().getNumber() != -1)
-                    restaurant.getAddress().setNumber(restaurantDto.getAddress().getNumber());
+            if (restaurant.getAddress() != null) {
+                if (restaurant.getAddress().getCountry() != null)
+                    origin.getAddress().setCountry(restaurant.getAddress().getCountry());
+                if (restaurant.getAddress().getCity() != null)
+                    origin.getAddress().setCity(restaurant.getAddress().getCity());
+                if (restaurant.getAddress().getStreet() != null)
+                    origin.getAddress().setStreet(restaurant.getAddress().getStreet());
+                if (restaurant.getAddress().getNumber() != -1)
+                    origin.getAddress().setNumber(restaurant.getAddress().getNumber());
             }
 
-            restaurantRepo.save(restaurant);
+            restaurantRepo.save(origin);
         }
-        return restaurant;
+        return origin;
     }
 
     @Transactional(readOnly = true)
@@ -92,8 +91,8 @@ public class RestaurantService {
         restaurantRepo.deleteAllById(ids);
     }
 
-    public void deleteAll(Iterable<Restaurant> Restaurantes) {
-        restaurantRepo.deleteAll(Restaurantes);
+    public void deleteAll(Iterable<Restaurant> restaurants) {
+        restaurantRepo.deleteAll(restaurants);
     }
 
     public List<String> getImagesBase64(List<Restaurant> restaurants) {

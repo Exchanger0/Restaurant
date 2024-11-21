@@ -1,45 +1,36 @@
 package com.restaurant.dto;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.restaurant.model.Address;
 
 import java.time.LocalTime;
-import java.util.Base64;
 import java.util.Map;
 import java.util.Objects;
 
 public class RestaurantDto {
-    private byte[] image;
+    private String image;
     private Address address;
+    @JsonFormat(pattern = "HH:mm")
     private LocalTime startTime;
+    @JsonFormat(pattern = "HH:mm")
     private LocalTime endTime;
 
     public RestaurantDto() {
     }
 
-    public RestaurantDto(byte[] image, Address address, LocalTime startTime, LocalTime endTime) {
+    public RestaurantDto(String image, Address address, LocalTime startTime, LocalTime endTime) {
         this.image = image;
         this.address = address;
         this.startTime = startTime;
         this.endTime = endTime;
     }
 
-    public RestaurantDto(Map<String, String> values) {
-        if (values.containsKey("image"))
-            this.image = Base64.getDecoder().decode(values.get("image"));
-
-        if (values.containsKey("startTime"))
-            this.startTime = LocalTime.parse(values.get("startTime"));
-
-        if (values.containsKey("endTime"))
-            this.endTime = LocalTime.parse(values.get("endTime"));
-    }
-
-    public byte[] getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(byte[] image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
