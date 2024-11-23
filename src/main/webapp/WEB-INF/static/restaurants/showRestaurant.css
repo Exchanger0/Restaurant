@@ -22,3 +22,10 @@ body {
 hr {
 	margin: 20px 0px;
 }
+
+.employee {
+	display: flex;
+	flex-direction: row;
+	font-size: 25px;
+	gap: 15px;
+}

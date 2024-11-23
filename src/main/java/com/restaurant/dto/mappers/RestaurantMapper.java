@@ -20,6 +20,7 @@ public class RestaurantMapper {
     public static RestaurantDto toDto(Restaurant restaurant) {
         RestaurantDto restaurantDto = new RestaurantDto(restaurant.getId(), "", restaurant.getAddress(),
                 restaurant.getStartTime(), restaurant.getEndTime());
+        restaurantDto.setId(restaurant.getId());
         if (restaurant.getImage() != null && restaurant.getImage().length != 0)
             restaurantDto.setImage(Base64.getEncoder().encodeToString(restaurant.getImage()));
         return restaurantDto;

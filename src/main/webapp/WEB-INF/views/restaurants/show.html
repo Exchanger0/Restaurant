@@ -21,7 +21,15 @@
     <p th:text="|Address: ${restaurant.address.country}, ${restaurant.address.city}, ${restaurant.address.street} ${restaurant.address.number}|">Restaurant address</p>
     <p th:text="|Working time: ${restaurant.startTime} - ${restaurant.endTime}|">Working time</p>
     <hr>
-    <p>Our employees: TODO</p>
+    <p style="margin-bottom: 10px;">Our employees:</p>
+    <div class="employee" th:each="empl : ${employees}">
+        <img th:src="'data:image/jpeg;base64,' + ${empl.photo}" alt="Restaurant Image" width="100px" height="100px"/>
+        <div>
+            <p th:text="|${empl.firstName} ${empl.lastName}|">Full name</p>
+            <p>Position: <span th:text="${empl.position}"></span></p>
+            <p>Salary: <span th:text="${empl.salary}"></span>$</p>
+        </div>
+    </div>
 </div>
 <footer>
     <p>Phone number: +7 (123) 456-78-90</p>

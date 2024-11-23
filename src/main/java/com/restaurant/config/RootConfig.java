@@ -19,7 +19,7 @@ import java.util.Properties;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackages = "com.restaurant.repository")
-@ComponentScan(basePackages = "com.restaurant.service")
+@ComponentScan(basePackages = {"com.restaurant.service", "com.restaurant.dto.mappers"})
 public class RootConfig {
 
     //configure Spring Data JPA with Hibernate
