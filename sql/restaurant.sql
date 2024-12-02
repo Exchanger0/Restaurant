@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS dish_ingredient;
 DROP TABLE IF EXISTS dish;
-DROP TABLE IF EXISTS ingredient;
+DROP TABLE IF EXISTS main_ingredient;
 DROP TABLE IF EXISTS employee;
 DROP TABLE IF EXISTS restaurant;
 DROP TABLE IF EXISTS address;
@@ -11,18 +11,18 @@ CREATE TABLE dish (
 	title text NOT NULL,
 	description text NOT NULL,
 	image bytea NOT NULL,
-	price int NOT NULL
+	price int NOT NULL,
+	type text NOT NUll
 );
 
-CREATE TABLE ingredient (
+CREATE TABLE main_ingredient (
 	id int PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-	title text NOT NULL,
-	type text NOT NULL
+	title text NOT NULL
 );
 
 CREATE TABLE dish_ingredient (
 	dish_id int REFERENCES dish(id),
-	ingredient_id int REFERENCES ingredient(id)
+	main_ingredient_id int REFERENCES main_ingredient(id)
 );
 
 CREATE TABLE address (

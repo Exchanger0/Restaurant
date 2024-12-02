@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurant</title>
+    <link rel="stylesheet" th:href="@{/static/menu/allDishesStyle.css}">
+    <link rel="stylesheet" th:href="@{/static/mainStyle.css}">
+</head>
+<body>
+<header>
+    <div><p class="title">Restaurant</p></div>
+    <div class="buttons">
+        <a th:href="@{/home}" class="btn">Home</a>
+        <a th:href="@{/menu}" class="btn">Menu</a>
+        <a th:href="@{/restaurants}" class="btn">Restaurants</a>
+        <a th:href="@{/home}" class="btn">Summary</a>
+    </div>
+</header>
+<div class="dishes">
+    <div th:each="dish : ${dishes}" class="dish">
+        <img th:src="'data:image/jpeg;base64,' + ${dish.image}" alt="Dish Image" width="300px" height="300px" />
+        <div>
+            <p th:text="${dish.title}">Title</p>
+            <p th:text="${dish.price} + '$'">Price</p>
+            <a class="dish-link" th:href="@{menu/{dishId}(dishId=${dish.id})}">Show</a>
+        </div>
+    </div>
+<div>
+
+<footer>
+    <p>Phone number: +7 (123) 456-78-90</p>
+    <p>Email: info@restaurantname.com</p>
+    <p>Restaurant 2024</p>
+</footer>
+
+<script type="text/javascript" th:src="@{static/menu/allDishesScript.js}"></script>
+</body>
+</html>

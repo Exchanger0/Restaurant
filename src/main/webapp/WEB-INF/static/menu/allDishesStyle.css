@@ -1,0 +1,30 @@
+/* Restaurants */
+
+.dishes {
+	background-color: black;
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.dish {
+	font-size: 25px;
+	background-color: white;
+	display: flex;
+	flex-direction: row;
+	gap: 20px;
+	padding: 10px;
+	border-radius: 20px;
+}
+
+.dish-link {
+	color: black;
+	margin-top: 20px;
+}
+
+.dish-link: visited {
+	color: darkgray;
+}

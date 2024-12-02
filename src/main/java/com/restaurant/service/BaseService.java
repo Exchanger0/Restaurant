@@ -17,8 +17,8 @@ public abstract class BaseService<T, K> {
         this.repository = repository;
     }
 
-    public T save(T address) {
-        return repository.save(address);
+    public T save(T entity) {
+        return repository.save(entity);
     }
 
     public List<T> saveAll(Iterable<T> entities) {
@@ -54,15 +54,15 @@ public abstract class BaseService<T, K> {
         repository.deleteById(id);
     }
 
-    public void delete(T address) {
-        repository.delete(address);
+    public void delete(T entity) {
+        repository.delete(entity);
     }
 
     public void deleteAllById(Iterable<? extends K> ids) {
         repository.deleteAllById(ids);
     }
 
-    public void deleteAll(Iterable<T> addresses) {
-        repository.deleteAll(addresses);
+    public void deleteAll(Iterable<T> entities) {
+        repository.deleteAll(entities);
     }
 }

@@ -69,7 +69,7 @@ public class RestaurantController {
     @PutMapping(value = "/{restaurantId}", consumes = "application/json")
     public String updateRestaurant(@PathVariable("restaurantId") int restaurantId,
                                    @RequestBody RestaurantDto restaurantDto) {
-        LOGGER.info("Received a PATH request to url: /restaurants/{}", restaurantId);
+        LOGGER.info("Received a PUT request to url: /restaurants/{}", restaurantId);
 
         Restaurant restaurant = restaurantService.update(restaurantId, RestaurantMapper.fromDto(restaurantDto));
 
