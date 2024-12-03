@@ -11,26 +11,10 @@ import java.util.List;
 @Service
 @Transactional
 public class DishService extends BaseService<Dish, Integer> {
-    private final IngredientService ingredientService;
 
     @Autowired
-    public DishService(DishRepo dishRepo, IngredientService ingredientService) {
+    public DishService(DishRepo dishRepo) {
         super(dishRepo);
-        this.ingredientService = ingredientService;
-    }
-
-    @Override
-    public Dish save(Dish entity) {
-        ingredientService.saveAll(entity.getIngredients());
-        return super.save(entity);
-    }
-
-    @Override
-    public List<Dish> saveAll(Iterable<Dish> entities) {
-        for (Dish d : entities) {
-            ingredientService.saveAll(d.getIngredients());
-        }
-        return super.saveAll(entities);
     }
 
     public Dish update(int id, Dish dish) {
