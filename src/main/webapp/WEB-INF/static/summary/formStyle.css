@@ -1,0 +1,39 @@
+body {
+	background-color: black;
+}
+
+form {
+	background-color: white;
+	margin: 0px 20xp 0px 20px;
+	padding: 10px 0px 10px 0px;
+	border-radius: 20px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+label {
+	margin-top: 10px;
+}
+
+.visible {
+	visibility: visible;
+}
+
+.hidden {
+	visibility: hidden;
+}
+
+.gr {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	row-gap: 10px;
+}
+
+.error {
+	color: red;
+	font-weight: bold;
+	margin-left: 10px;
+}

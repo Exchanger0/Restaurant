@@ -55,7 +55,10 @@ CREATE TABLE summary (
 	id int PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
 	first_name text NOT NULL,
 	last_name text NOT NULL,
+	age int NOT NULL,
 	email text  NOT NULL,
+	phone_number varchar(11) NOT NULL,
 	position text NOT NULL,
+	work_experience int NOT NULL,
 	about text NOT NULL
 );

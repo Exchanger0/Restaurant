@@ -38,10 +38,9 @@ public class EmployeeController {
     public ResponseEntity<EmployeeDto> getEmployee(@PathVariable("employeeId") int employeeId) {
         LOGGER.info("Received a GET request to url: /employees/{}", employeeId);
 
-
         Employee employee = employeeService.findById(employeeId);
         if (employee != null)
-            return ResponseEntity.ok(employeeMapper.toDto(employeeService.findById(employeeId)));
+            return ResponseEntity.ok(employeeMapper.toDto(employee));
         else
             return ResponseEntity.notFound().build();
     }
@@ -53,7 +52,7 @@ public class EmployeeController {
         System.out.println(employeeDto);
         Employee employee = employeeService.save(employeeMapper.fromDto(employeeDto));
 
-        LOGGER.info("Success create employee");
+        LOGGER.info("Success create employee: {}", employee);
         return employeeMapper.toDto(employee);
     }
 
@@ -61,6 +60,7 @@ public class EmployeeController {
     public ResponseEntity<String> delete(@PathVariable("employeeId") int employeeId) {
         LOGGER.info("Received a DELETE request to url: /employees/{}", employeeId);
         employeeService.deleteById(employeeId);
+        LOGGER.info("Delete employee with id = {}", employeeId);
         return ResponseEntity.ok("success delete");
     }
 

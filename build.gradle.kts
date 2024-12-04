@@ -27,4 +27,8 @@ dependencies {
 
     implementation("com.fasterxml.jackson.core:jackson-databind:2.18.1")
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.18.1")
+
+
+    implementation("jakarta.validation:jakarta.validation-api:3.1.0")
+    implementation("org.hibernate.validator:hibernate-validator:8.0.1.Final")
 }

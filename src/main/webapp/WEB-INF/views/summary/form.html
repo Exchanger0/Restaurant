@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurant</title>
+    <link rel="stylesheet" th:href="@{/static/summary/formStyle.css}">
+    <link rel="stylesheet" th:href="@{/static/mainStyle.css}">
+</head>
+<body>
+<header>
+    <div><p class="title">Restaurant</p></div>
+    <div class="buttons">
+        <a th:href="@{/home}" class="btn">Home</a>
+        <a th:href="@{/menu}" class="btn">Menu</a>
+        <a th:href="@{/restaurants}" class="btn">Restaurants</a>
+        <a th:href="@{/summary}" class="btn">Summary</a>
+    </div>
+</header>
+<form th:action="@{summaries}" method="post" th:object="${summary}">
+    <div class="gr">
+        <label for="fn">First name:</label>
+        <input type="text" id="fn" th:field="*{firstName}">
+        <p class="error" th:text="${#fields.hasErrors('firstName')} ? ${#fields.errors('firstName')[0]} : ''"></p>
+
+        <label for="ln">Last name:</label>
+        <input type="text" id="ln" th:field="*{lastName}">
+        <p class="error" th:text="${#fields.hasErrors('lastName')} ? ${#fields.errors('lastName')[0]} : ''"></p>
+
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" th:field="*{age}">
+        <p class="error" th:text="${#fields.hasErrors('age')} ? ${#fields.errors('age')[0]} : ''"></p>
+
+
+        <label for="em">Email:</label>
+        <input type="email" id="em" th:field="*{email}">
+        <p class="error" th:text="${#fields.hasErrors('email')} ? ${#fields.errors('email')[0]} : ''"></p>
+
+        <label for="pn">Phone number:</label>
+        <input type="tel" id="pn" th:field="*{phoneNumber}">
+        <p class="error" th:text="${#fields.hasErrors('phoneNumber')} ? ${#fields.errors('phoneNumber')[0]} : ''"></p>
+
+        <label for="pos">Position:</label>
+        <input type="text" id="pos" th:field="*{position}">
+        <p class="error" th:text="${#fields.hasErrors('position')} ? ${#fields.errors('position')[0]} : ''"></p>
+
+        <label for="we">Work experience:</label>
+        <input type="number" id="we" th:field="*{workExperience}">
+        <p class="error" th:text="${#fields.hasErrors('workExperience')} ? ${#fields.errors('workExperience')[0]} : ''"></p>
+
+        <label for="about">About:</label>
+        <textarea id="about" th:field="*{about}"></textarea>
+    </div>
+
+    <input type="submit" value="Submit">
+
+    <!-- <label>First name: <input type="text" th:field="*{firstName}"></label>
+    <p class="error" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></p>
+
+    <label>Last name: <input type="text" th:field="*{lastName}"></label>
+    <p class="error" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></p>
+
+    <label>Age: <input type="number" th:field="*{age}"></label>
+    <p class="error" th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></p>
+
+    <label>Email: <input type="email" th:field="*{email}"></label>
+    <p class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+
+    <label>Phone number: <input type="tel" th:field="*{phoneNumber}"></label>
+    <p class="error" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></p>
+
+    <label>Position: <input type="text" th:field="*{position}"></label>
+    <p class="error" th:if="${#fields.hasErrors('position')}" th:errors="*{position}"></p>
+
+    <label>Work experience: <input type="number" th:field="*{workExperience}"></label>
+    <p class="error" th:if="${#fields.hasErrors('workExperience')}" th:errors="*{workExperience}"></p>
+
+    <label for="about">About:</label>
+    <textarea id="about" th:field="*{about}"></textarea>
+
+    <input type="submit" value="Submit"> -->
+</form>
+<footer>
+    <p>Phone number: +7 (123) 456-78-90</p>
+    <p>Email: info@restaurantname.com</p>
+    <p>Restaurant 2024</p>
+</footer>
+</body>
+</html>
