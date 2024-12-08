@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
-public class AddressService extends BaseService<Address, Integer> {
+public class AddressService extends BaseService<Address, Integer, AddressRepo> {
 
     @Autowired
     public AddressService(AddressRepo addressRepo) {

@@ -7,32 +7,53 @@
     <link rel="stylesheet" th:href="@{/static/mainStyle.css}">
 </head>
 <body>
-<header>
-    <div><p class="title">Restaurant</p></div>
-    <div class="buttons">
-        <a th:href="@{/home}" class="btn">Home</a>
-        <a th:href="@{/menu}" class="btn">Menu</a>
-        <a th:href="@{/restaurants}" class="btn">Restaurants</a>
-        <a th:href="@{/summary}" class="btn">Summary</a>
-    </div>
-</header>
-<div class="dishes">
-    <div th:each="dish : ${dishes}" class="dish">
-        <img th:src="'data:image/jpeg;base64,' + ${dish.image}" alt="Dish Image" width="300px" height="300px" />
-        <div>
-            <p th:text="${dish.title}">Title</p>
-            <p th:text="${dish.price} + '$'">Price</p>
-            <a class="dish-link" th:href="@{menu/{dishId}(dishId=${dish.id})}">Show</a>
+<div class="main">
+    <header>
+        <div><p class="title">Restaurant</p></div>
+        <div class="buttons">
+            <a th:href="@{/home}" class="btn">Home</a>
+            <a th:href="@{/menu}" class="btn">Menu</a>
+            <a th:href="@{/restaurants}" class="btn">Restaurants</a>
+            <a th:href="@{/summary}" class="btn">Summary</a>
         </div>
+    </header>
+
+    <div class="find">
+        <form th:action="@{/menu}" method="GET">
+          <label for="type">Type:</label>
+          <select id="type" name="type">
+            <option th:each="type : ${types}" th:value="${type}" th:text="${type}" th:selected="${type == selectedType}"></option>
+          </select>
+          
+          <label for="price">Price:</label>
+          <input id="price" name="price" type="text" th:value="${selectedPrice}">
+          
+          <label for="name">Name:</label>
+          <input name="name" type="search" id="name" th:value="${selectedName}">
+
+          <input type="image" th:src="@{/static/menu/find.png}" width="40" height="40">
+        </form>
     </div>
-<div>
 
-<footer>
-    <p>Phone number: +7 (123) 456-78-90</p>
-    <p>Email: info@restaurantname.com</p>
-    <p>Restaurant 2024</p>
-</footer>
+    <div class="dishes">
+        <p class="not-found" th:if="${dishes.isEmpty()}">Not found</p>
 
+        <div th:each="dish : ${dishes}" class="dish">
+            <img th:src="'data:image/jpeg;base64,' + ${dish.image}" alt="Dish Image" width="300px" height="300px" />
+            <div>
+                <p th:text="${dish.title}">Title</p>
+                <p th:text="${dish.price} + '$'">Price</p>
+                <a class="dish-link" th:href="@{menu/{dishId}(dishId=${dish.id})}">Show</a>
+            </div>
+        </div>
+    <div>
+
+    <footer>
+        <p>Phone number: +7 (123) 456-78-90</p>
+        <p>Email: info@restaurantname.com</p>
+        <p>Restaurant 2024</p>
+    </footer>
+</div>
 <script type="text/javascript" th:src="@{static/menu/allDishesScript.js}"></script>
 </body>
 </html>

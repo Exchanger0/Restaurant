@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service
 @Transactional
-public class EmployeeService extends BaseService<Employee, Integer> {
+public class EmployeeService extends BaseService<Employee, Integer, EmployeeRepo> {
 
     @Autowired
     public EmployeeService(EmployeeRepo employeeRepo) {
@@ -18,7 +18,7 @@ public class EmployeeService extends BaseService<Employee, Integer> {
     }
 
     public List<Employee> findAllByRestaurantId(int restaurantId) {
-        return ((EmployeeRepo) repository).findAllByRestaurantId(restaurantId);
+        return repository.findAllByRestaurantId(restaurantId);
     }
 
     public Employee update(int id, Employee employee) {

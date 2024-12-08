@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
-public class RestaurantService extends BaseService<Restaurant, Integer> {
+public class RestaurantService extends BaseService<Restaurant, Integer, RestaurantRepo> {
 
     @Autowired
     public RestaurantService(RestaurantRepo restaurantRepo) {

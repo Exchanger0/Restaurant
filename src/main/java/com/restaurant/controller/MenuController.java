@@ -30,8 +30,34 @@ public class MenuController {
         LOGGER.info("Received a GET request to url: /menu");
 
         List<Dish> dishes = dishService.findAll();
-        model.addAttribute("dishes", DishMapper.toDtoList(dishes));
+        setStandardGetModelAttrs(model, DishMapper.toDtoList(dishes), "*", "*", "");
         return "menu/index";
+    }
+
+    @GetMapping(params = {"type", "price", "name"})
+    public String findByPredict(Model model,
+                                @RequestParam(name = "type", required = false) String type,
+                                @RequestParam(name = "price", required = false) String price,
+                                @RequestParam(name = "name", required = false) String name) {
+        LOGGER.info("Received a GET request to url: /menu with params: type={}, price={}, name={}",
+                type, price, name);
+
+        List<Dish> dishes = dishService.findByPredict(type, price, name);
+        setStandardGetModelAttrs(model, DishMapper.toDtoList(dishes), type, price, name);
+
+        LOGGER.info("Was find {} dishes", dishes.size());
+        return "menu/index";
+    }
+
+    private void setStandardGetModelAttrs(Model model, List<DishDto> dishes, String selectedType, String selectedPrice,
+                                          String selectedName) {
+        model.addAttribute("dishes", dishes);
+        List<String> types = dishService.getAllTypes();
+        types.addFirst("*");
+        model.addAttribute("types", types);
+        model.addAttribute("selectedType", selectedType);
+        model.addAttribute("selectedPrice", selectedPrice);
+        model.addAttribute("selectedName", selectedName);
     }
 
 

@@ -1,5 +1,9 @@
 /* Restaurants */
 
+.main {
+	min-height: 100vh;
+}
+
 .dishes {
 	background-color: black;
 	display: flex;
@@ -27,4 +31,30 @@
 
 .dish-link: visited {
 	color: darkgray;
+}
+
+.not-found {
+	margin-top: 30px;
+	font-size: 45px;
+	font-weight: bold;
+	text-align: center;
+	color: white;
+}
+
+.find {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0px 10px 0px;
+  background-color: black;
+}
+
+.find form {
+  padding: 0px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: white;
+  border-radius: 10px;
 }

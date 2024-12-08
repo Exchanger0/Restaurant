@@ -38,11 +38,11 @@ public class RootConfig {
     public Properties hibernateProperties() {
         Properties properties = new Properties();
         properties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
-        properties.put("show_sql", "true");
-        properties.put("format_sql", "true");
+//        properties.put("show_sql", "true");
+//        properties.put("format_sql", "true");
         properties.put("hbm2ddl.auto", "validate");
-        properties.put("hibernate.use_sql_comments", "true");
-        properties.put("hibernate.type", "trace");
+//        properties.put("hibernate.use_sql_comments", "true");
+//        properties.put("hibernate.type", "trace");
         properties.put("hibernate.connection.useUnicode", "true");
         properties.put("hibernate.connection.characterEncoding", "UTF-8");
         properties.put("hibernate.connection.CharSet", "UTF-8");
@@ -63,7 +63,7 @@ public class RootConfig {
     public JpaVendorAdapter jpaVendorAdapter() {
         HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
         adapter.setGenerateDdl(true);
-        adapter.setShowSql(true);
+//        adapter.setShowSql(true);
         return adapter;
     }
 

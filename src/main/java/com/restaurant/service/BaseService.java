@@ -9,11 +9,11 @@ import java.util.List;
 
 @Service
 @Transactional
-public abstract class BaseService<T, K> {
-    protected final ListCrudRepository<T, K> repository;
+public abstract class BaseService<T, K, R extends ListCrudRepository<T, K>> {
+    protected final R repository;
 
     @Autowired
-    public BaseService(ListCrudRepository<T, K> repository) {
+    public BaseService(R repository) {
         this.repository = repository;
     }
 
