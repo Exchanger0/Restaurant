@@ -7,15 +7,8 @@
     <link rel="stylesheet" th:href="@{/static/menu/showDish.css}">
 </head>
 <body>
-<header>
-    <div><p class="title">Restaurant</p></div>
-    <div class="buttons">
-        <a th:href="@{/home}" class="btn">Home</a>
-        <a th:href="@{/menu}" class="btn">Menu</a>
-        <a th:href="@{/restaurants}" class="btn">Restaurants</a>
-        <a th:href="@{/summary}" class="btn">Summary</a>
-    </div>
-</header>
+<div th:replace="~{header :: header}"></div>
+
 <div class="dish">
     <img th:src="'data:image/jpeg;base64,' + ${dish.image}" alt="Dish Image" width="700px" height="700px"/>
     <p> <span class="name">Title: </span> <span th:text="${dish.title}"/></p> 
@@ -28,10 +21,7 @@
         <li th:each="ing : ${dish.ingredients}" th:text="${ing.title}">Ingredient title</li>
     </ul>
 </div>
-<footer>
-    <p>Phone number: +7 (123) 456-78-90</p>
-    <p>Email: info@restaurantname.com</p>
-    <p>Restaurant 2024</p>
-</footer>
+
+<div th:replace="~{footer :: footer}"></div>
 </body>
 </html>

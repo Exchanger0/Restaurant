@@ -8,15 +8,7 @@
 </head>
 <body>
 <div class="main">
-    <header>
-        <div><p class="title">Restaurant</p></div>
-        <div class="buttons">
-            <a th:href="@{/home}" class="btn">Home</a>
-            <a th:href="@{/menu}" class="btn">Menu</a>
-            <a th:href="@{/restaurants}" class="btn">Restaurants</a>
-            <a th:href="@{/summary}" class="btn">Summary</a>
-        </div>
-    </header>
+    <div th:replace="~{header :: header}"></div>
 
     <div class="find">
         <form th:action="@{/menu}" method="GET">
@@ -48,11 +40,7 @@
         </div>
     <div>
 
-    <footer>
-        <p>Phone number: +7 (123) 456-78-90</p>
-        <p>Email: info@restaurantname.com</p>
-        <p>Restaurant 2024</p>
-    </footer>
+    <div th:replace="~{footer :: footer}"></div>
 </div>
 <script type="text/javascript" th:src="@{static/menu/allDishesScript.js}"></script>
 </body>

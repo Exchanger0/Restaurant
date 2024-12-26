@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurant</title>
+</head>
+<body>
+<header th:fragment="header">
+    <div><p class="title">Restaurant</p></div>
+    <div class="buttons">
+        <a th:href="@{/home}" class="btn">Home</a>
+        <a th:href="@{/menu}" class="btn">Menu</a>
+        <a th:href="@{/restaurants}" class="btn">Restaurants</a>
+        <a th:href="@{/summary}" class="btn">Summary</a>
+    </div>
+</header>

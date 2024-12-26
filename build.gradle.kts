@@ -3,7 +3,7 @@ plugins {
     id("war")
 }
 
-group = "com.makepizza"
+group = "com.restaurant"
 
 repositories {
     mavenCentral()

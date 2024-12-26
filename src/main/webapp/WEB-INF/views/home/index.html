@@ -7,22 +7,12 @@
     <link rel="stylesheet" th:href="@{/static/mainStyle.css}">
 </head>
 <body>
-<header>
-    <div><p class="title">Restaurant</p></div>
-    <div class="buttons">
-        <a th:href="@{/home}" class="btn">Home</a>
-        <a th:href="@{/menu}" class="btn">Menu</a>
-        <a th:href="@{/restaurants}" class="btn">Restaurants</a>
-        <a th:href="@{/summary}" class="btn">Summary</a>
-    </div>
-</header>
+<div th:replace="~{header :: header}"></div>
+
 <div class="main-info">
     <p>Our restaurant is a place where every guest can find something to his or her liking. The cosy atmosphere disposes to relaxation, whether it is a family lunch, a dinner with friends or a romantic date. We use only fresh and high quality products to make each of our dishes tasty and enjoyable. Our team are true masters of their craft who put their heart into every dish, from appetisers to desserts. We are always happy to see new guests and our regular friends, because it is important for us that everyone feels at home here. Welcome, you will always find a warm welcome and an unforgettable gastronomic experience with us!</p>
 </div>
-<footer>
-    <p>Phone number: +7 (123) 456-78-90</p>
-    <p>Email: info@restaurantname.com</p>
-    <p>Restaurant 2024</p>
-</footer>
+
+<div th:replace="~{footer :: footer}"></div>
 </body>
 </html>
